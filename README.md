@@ -15,6 +15,8 @@
 ╰─────────────────────────────────────╯
 ```
 
+![效果截图](https://raw.githubusercontent.com/easonlao/pi-reply-frame/main/screenshot.png)
+
 ## 安装
 
 ```bash
