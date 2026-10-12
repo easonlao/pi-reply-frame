@@ -5,7 +5,7 @@
  * 做法：把 pi 的 AssistantMessageComponent.render 包一层。
  * 只包 render（已经渲染好的文本行），**不复制** pi 的 updateContent 逻辑——
  * 复制那种逻辑的话，pi 每加一个新功能（markdown 转换器、mermaid 渲染、截断提示）副本就会漏掉，
- * pi-thinking-box 1.5.0 就是这么把用户的 markdown 转换器弄没的。
+ * 于是扩展静默少功能，而且很难发现。
  *
  * 怎么区分正文和思考块：思考块在 pi 里是唯一被 MouseRegion 包起来的子组件，
  * 而 pi 渲染时会把每个子组件的行数记在 mouseLayout 里，所以能精确切出哪些行属于思考块。

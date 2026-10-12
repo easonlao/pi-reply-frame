@@ -64,7 +64,10 @@ pi install ./pi-reply-frame
 
 ### 关于 `COLOR`
 
-**别用 `"accent"` 或 `"border"`**——几乎所有主题里这两个是同一个颜色，而工具框（pi-rounded-tools 之类）用的就是 `border`，结果两个框长得一模一样。
+填主题里的颜色名。默认的 `customMessageLabel` 一般不会撞色；想换的话避开这两个：
+
+- **`border`** —— pi 的通用边框色，多数给工具块画框的扩展也用它，容易和工具框混在一起
+- **`accent`** —— 在多数主题里和 `border` 是同一个颜色（实测 18 套主题里 16 套两者同值），所以跟 `border` 一样容易混
 
 以 tokyo-night 为例可选的颜色（括号内是该主题下的实际颜色）：
 
