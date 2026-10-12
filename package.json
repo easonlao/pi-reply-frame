@@ -1,0 +1,44 @@
+{
+  "name": "pi-reply-frame",
+  "version": "0.1.0",
+  "description": "Rounded frames around assistant reply bodies in pi — thinking blocks stay unframed.",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "pi",
+    "pi-coding-agent",
+    "reply",
+    "frame",
+    "tui"
+  ],
+  "author": "easonlao <easonlao@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easonlao/pi-reply-frame.git"
+  },
+  "bugs": {
+    "url": "https://github.com/easonlao/pi-reply-frame/issues"
+  },
+  "homepage": "https://github.com/easonlao/pi-reply-frame#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "packageManager": "pnpm@10.34.6",
+  "files": [
+    "extensions/",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ],
+    "image": "https://raw.githubusercontent.com/easonlao/pi-reply-frame/main/screenshot.png"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}
