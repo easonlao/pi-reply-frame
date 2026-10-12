@@ -1,6 +1,6 @@
 {
   "name": "pi-reply-frame",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rounded frames around assistant reply bodies in pi — thinking blocks stay unframed.",
   "keywords": [
     "pi-package",
