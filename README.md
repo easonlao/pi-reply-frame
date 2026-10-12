@@ -50,6 +50,7 @@ pi remove npm:pi-reply-frame
 直接改它有效，但 `pi update` 会覆盖掉。想长期改就把仓库 clone 下来，用本地路径装：
 
 ```bash
+git clone https://github.com/easonlao/pi-reply-frame.git
 pi install ./pi-reply-frame
 ```
 
@@ -67,7 +68,7 @@ pi install ./pi-reply-frame
 填主题里的颜色名。默认的 `customMessageLabel` 一般不会撞色；想换的话避开这两个：
 
 - **`border`** —— pi 的通用边框色，多数给工具块画框的扩展也用它，容易和工具框混在一起
-- **`accent`** —— 在多数主题里和 `border` 是同一个颜色（实测 18 套主题里 16 套两者同值），所以跟 `border` 一样容易混
+- **`accent`** —— 多数主题里 `border` 就是直接指向 `accent`（两者同色），所以跟 `border` 一样容易混
 
 以 tokyo-night 为例可选的颜色（括号内是该主题下的实际颜色）：
 
@@ -85,7 +86,7 @@ pi 没有给"助手消息"开渲染口子——`registerMessageRenderer` 只能�
 
 只包 `render`（已经渲染完的行），**不复制** pi 的 `updateContent` 逻辑。这一点是刻意的：`updateContent` 是组装内容的地方，pi 每加一个新特性（markdown 转换器、mermaid 渲染、截断提示）都会改它，任何复制它的扩展都会在 pi 升级后静默丢功能。
 
-正文和思考块的区分：思考块是 pi 里唯一被 `MouseRegion` 包起来的子组件，而 pi 渲染时会把每个子组件的行数记在 `mouseLayout` 里，所以能按行数精确切出思考块的范围。切不出来（pi 改了结构）就退化成"整条消息一个框"，不会报错。
+正文和思考块的区分：思考块是这条消息的子组件里唯一被 `MouseRegion` 包起来的，而 pi 渲染时会把每个子组件的行数记在 `mouseLayout` 里，所以能按行数精确切出思考块的范围。切不出来（pi 改了结构）就退化成"整条消息一个框"，不会报错。
 
 其它已处理的细节：
 
@@ -96,9 +97,9 @@ pi 没有给"助手消息"开渲染口子——`registerMessageRenderer` 只能�
 
 ## 已知边界
 
-- 折叠 thinking 时（settings 里 `hideThinkingBlock: true`，或用快捷键折叠），那行 `Thinking...` 是普通文本、不是 `MouseRegion`，所以**会被框进去**。
-- 一条消息里如果有多个文字块（文字→工具→文字 全在同一条消息里），会有多个框。
+- 一条消息里如果文字被思考块隔开（文字→思考→文字），会有多个框；工具调用不算分隔，所以 文字→工具→文字 只有一个框。
+- 折叠 thinking 时（settings 里 `hideThinkingBlock: true`，或用快捷键折叠），那行 `Thinking...` 和展开时一样被当成思考块，所以**不套框**。
 
-## License
+## 许可证
 
 MIT
