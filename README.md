@@ -20,22 +20,40 @@
 ## 安装
 
 ```bash
-pi install /home/easonlao/pi-reply-frame
+pi install npm:pi-reply-frame
 ```
 
 然后 `/reload`。
 
-装完之后**要删掉** `~/.pi/agent/extensions/reply-frame.ts`（如果还在的话），否则同一个扩展会被加载两次。有幂等保护不会出现两个框，但没必要留着。
+只想试一下、不想写进 settings：
+
+```bash
+pi -e npm:pi-reply-frame
+```
 
 ## 卸载
 
 ```bash
-pi remove /home/easonlao/pi-reply-frame
+pi remove npm:pi-reply-frame
 ```
 
 ## 配置
 
 改 `extensions/reply-frame.ts` 顶部的常量，然后 `/reload`。
+
+从 npm 装的，文件在 pi 的包目录里：
+
+```
+~/.pi/agent/npm/node_modules/pi-reply-frame/extensions/reply-frame.ts
+```
+
+直接改它有效，但 `pi update` 会覆盖掉。想长期改就把仓库 clone 下来，用本地路径装：
+
+```bash
+pi install ./pi-reply-frame
+```
+
+本地路径不会复制文件，改完 `/reload` 就生效。
 
 | 常量 | 默认 | 作用 |
 | --- | --- | --- |
